@@ -5,10 +5,26 @@ using UnityEngine.SceneManagement;
 public class ExitButton : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] Animator animator;
-    public void PlayGame()
+    [SerializeField] AudioSource click;
+    float timeCounter2 = 0;
+    private void Update()
     {
-        animator.SetTrigger("Fadeout");
-        Application.Quit();
+        if (click.enabled == true && timeCounter2 <= 2)
+        {
+            timeCounter2 += Time.deltaTime;
+        }
+        else
+        {
+            timeCounter2 = 0;
+            click.enabled = false;
+        }
     }
+    public void PlayGame()
+    { 
+
+        click.enabled = true;
+        Application.Quit();
+        
+    }
+    
 }

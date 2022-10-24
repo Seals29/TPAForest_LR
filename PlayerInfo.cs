@@ -7,16 +7,24 @@ public class PlayerInfo : MonoBehaviour
     // Start is called before the first frame update
     private float hp;
     public float dmg = 1f;
-    public float AGI;
-    public float STR;
+    [SerializeField]
+    private float AGI;
+    [SerializeField]
+    private float STR;
+    [SerializeField]
+    private float POW;
 
+    public float getPOW()
+    {
+        return POW;
+    }
     public float getdmg()
     {
         return dmg;
     }
     public float getAGI()
     {
-        return AGI;
+        return AGI*0.12f;
     }
     public float getSTR()
     {
@@ -30,6 +38,10 @@ public class PlayerInfo : MonoBehaviour
     public void setSTR(float STR)
     {
         this.STR = STR;
+    }
+    public void setPOW(float POW)
+    {
+        this.POW = POW;
     }
   
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private CharacterController controller;
-
+    PlayerInfo playerspeed;
     [SerializeField, Range(1, 50)]
     public float speed = 100;
     private Vector3 Direction;
@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerspeed = GetComponent<PlayerInfo>();
         controller = GetComponent<CharacterController>();
     }
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class Movement : MonoBehaviour
             float tempSpeedY = moveDirection.y;
             moveDirection = Quaternion.Euler(0, angle, 0) * Vector3.forward;
             //
-            moveDirection = moveDirection.normalized * speed;
+            moveDirection = moveDirection.normalized * speed * playerspeed.getAGI();
 
             moveDirection.y = tempSpeedY;
         }

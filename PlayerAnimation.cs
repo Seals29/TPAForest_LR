@@ -11,6 +11,8 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] AudioSource die;
     [SerializeField] AudioSource yata;
     [SerializeField] AudioSource sword1;
+    [SerializeField] AudioSource Levelup;
+    [SerializeField] AudioSource rollsfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,10 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
 
+    }
+    public void rollsound()
+    {
+        rollsfx.enabled = true;
     }
     public void Sword1Sound()
     {
@@ -42,11 +48,18 @@ public class PlayerAnimation : MonoBehaviour
     {
         die.enabled = true;
     }
+
+    public void LevelupSound()
+    {
+        Levelup.enabled = true;
+    }
     public void ResetSound()
     {
         tonjok.enabled = false;
         yata.enabled = false;
         sword1.enabled = false;
+        rollsfx.enabled = false;
+        Levelup.enabled = false;
     }
 
 }

@@ -1,23 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class NearBear : MonoBehaviour
+
+public class SkillPointScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]
-    private Slider sliderhp;
-    [SerializeField]
-    private EnemyInfo bearinfo;
-    public float bearhp = 50f;
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

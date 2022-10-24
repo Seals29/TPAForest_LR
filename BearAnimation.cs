@@ -9,6 +9,7 @@ public class BearAnimation : MonoBehaviour
     [SerializeField] AudioSource playergethit;
     [SerializeField] AudioSource die;
     [SerializeField] AudioSource bearrun;
+    
     public BearObject bearObject;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,15 @@ public class BearAnimation : MonoBehaviour
     {
 
     }
+
+    public void bearDeathSound()
+    {
+        die.enabled = true;
+    }
+    public void bearhitSound()
+    {
+        bearhit.enabled = true;
+    }
     public void playergethitSound()
     {
         playergethit.enabled = true;
@@ -30,6 +40,7 @@ public class BearAnimation : MonoBehaviour
     {
         bearhit.enabled = false;
         playergethit.enabled = false;
+        die.enabled = false;
     }
     public void DisplayPoolObject()
     {

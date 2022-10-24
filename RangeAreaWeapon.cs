@@ -6,8 +6,13 @@ public class RangeAreaWeapon : MonoBehaviour
 {
     [SerializeField] private PlayerTrigger trigger;
     [SerializeField] private EnemyTrigger trigger2;
+    [SerializeField] private TerrainTrigger trigger3;
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Grass"))
+        {
+            trigger3.addTerrain(other.gameObject);
+        }
         if (other.gameObject.CompareTag("Weapon"))
         {
             
@@ -21,6 +26,10 @@ public class RangeAreaWeapon : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("Grass"))
+        {
+            trigger3.deleteTerrain(other.gameObject);
+        }
         if (other.gameObject.CompareTag("Weapon"))
         {
             //

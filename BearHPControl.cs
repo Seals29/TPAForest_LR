@@ -11,10 +11,15 @@ public class BearHPControl : MonoBehaviour
     public EnemyInfo bearinfo;
     public float bearhp = 4f;
     public float bearatk = 1f;
+    public float enemyXP;
 
     public float  getHp()
     {
         return bearhp;
+    }
+    public float getXP()
+    {
+        return enemyXP;
     }
     public float bearAtk()
     {
@@ -24,17 +29,22 @@ public class BearHPControl : MonoBehaviour
     {
         this.bearhp = bearhp;
     }
+    public void Setslider()
+    {
+        sliderhp.value = bearhp;
+    }
     void Start()
     {
-
+        sliderhp.maxValue = bearhp;
+        sliderhp.value = bearhp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        sliderhp.maxValue = bearhp;
+        
 
-        //sliderhp.value = bearinfo.getHP();
+        //sliderhp.value = bearhp;
 
     }
 }

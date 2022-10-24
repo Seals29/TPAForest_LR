@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class NearBear : MonoBehaviour
+
+public class StatsScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]
-    private Slider sliderhp;
-    [SerializeField]
-    private EnemyInfo bearinfo;
-    public float bearhp = 50f;
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
+    }
+    void OnGUI()
+    {
+        Rect rect1 = new Rect(10, Screen.height - 20, 400, 30);
+        //isIkActive = GUI.Toggle(rect1, isIkActive, "IK Active");
     }
 }

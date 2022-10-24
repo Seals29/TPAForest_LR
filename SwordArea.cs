@@ -17,7 +17,7 @@ public class SwordArea : MonoBehaviour
     void Update()
     {
         Vector3 range = Player.position - transform.position;
-        if (range.magnitude <= 35)
+        if (range.magnitude <= 2f)
         {
             canvas.enabled = true;
         }

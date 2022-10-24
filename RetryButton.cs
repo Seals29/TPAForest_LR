@@ -5,10 +5,26 @@ using UnityEngine.SceneManagement;
 public class RetryButton : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] Animator animator;
+    [SerializeField] AudioSource click;
+    float timeCounter2 = 0;
+    private void Update()
+    {
+        if (click.enabled == true&&timeCounter2<=2)
+        {
+            timeCounter2 += Time.deltaTime;
+        }
+        else
+        {
+            timeCounter2 = 0;
+            click.enabled = false;
+        }
+    }
+
     public void PlayGame()
     {
-        //animator.SetTrigger("Fadeout");
-        SceneManager.LoadScene(3);
+        click.enabled = true;
+        new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
     }
+    
 }
