@@ -23,6 +23,8 @@ public class PlayerAnimator : MonoBehaviour
 
     [SerializeField]
     AudioSource grass;
+    [SerializeField]
+    AudioSource levelup;
     bool weaponcheck = false;
     public Movement speed;
     public Canvas canvas;
@@ -59,6 +61,7 @@ public class PlayerAnimator : MonoBehaviour
     int currlvl = 1;
     // Start is called before the first frame update
     private float deathCounter =0;
+    private float sfxcounter = 0;
     void Start()
     {
         playerdmg = GetComponent<PlayerInfo>();
@@ -76,8 +79,20 @@ public class PlayerAnimator : MonoBehaviour
     }
     void Update()
     {
+        if (sfxcounter <= 2)
+        {
+            sfxcounter += Time.deltaTime;
+        }
+        else
+        {
+            levelup.enabled = false;
+            sfxcounter = 0;
+        }
+
+
         if (sliderxp.value >= (10 + playerdmg.getSTR()))
         {
+            levelup.enabled = true;
             slider.value += maxHP + (playerdmg.getSTR() * 2f);
             sliderxp.value -= (10 + playerdmg.getSTR());
             lvlupcount += 1;
